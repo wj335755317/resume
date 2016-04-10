@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{padding: 0;margin:0;}
+dl{width:700px;margin:0 auto;border:1px solid #999;margin-top:100px;}
+dd{line-height:30px;text-align:center;border-top:1px solid #999;cursor:pointer;}
+dd:first-child{border:none;}
+.odd{background:#CACAFF;}
+.even{background:#B6B6B6;}
+.hover{background:#FFFFB5;}
+#gotop{width:24px;height:45px;cursor:pointer;position:fixed;bottom:30px;right:10px;display:none;border-radius:3px;_position:absolute;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,30)||0)));}
+#gotop a{display:block;position:absolute;width:100%;height:100%;background:url(top.png) no-repeat left top;}
+#gotop a:hover{background:url(top.png) no-repeat right top;}
+p{height:2000px;}
+</style>
+<script src="../js/jquery.js"></script>
+<script>
+$(function(){
+    $("dl").dlUI({evenclass:"even",oddclass:"odd",hoverclass:"hover"});      
+    $("#gotop").click(function(){
+        $('body').animate({scrollTop:0},300);                    
+    }); 
+    $(window).scroll(function(){
+        var top=$(window).scrollTop();
+        var gotop=$("#gotop");
+        if(top>100){
+            gotop.show();
+        }else{
+            gotop.hide();
+        }
+    })      
+});
+;(function($){//隔行换色插件
+    $.fn.dlUI=function(options){
+        var $default={evenclass:"evenclass",oddclass:"oddclass",hoverclass:"hoverclass"}
+        var ops=$.extend($default,options);
+        this.each(function(){
+            var thisdl=$(this);
+            //添加奇偶行颜色
+            $(thisdl).find("dd:even").addClass(ops.evenclass);
+            $(thisdl).find("dd:odd").addClass(ops.oddclass);
+            //添加活动行颜色
+            $(thisdl).find("dd").bind("mouseover",function(){
+                $(this).addClass(ops.hoverclass);
+            });
+            $(thisdl).find("dd").bind("mouseout",function(){
+                $(this).removeClass(ops.hoverclass);
+            });
+        });
+    };
+})(jQuery);
+</script>
+</head>
+<body>
+<p style="padding-top:100px;height:50px;"></p>
+<dl>
+    <dd>第1行</dd>
+    <dd>第2行</dd>
+    <dd>第3行</dd>
+    <dd>第4行</dd>
+    <dd>第5行</dd>
+    <dd>第6行</dd>
+    <dd>第7行</dd>
+    <dd>第8行</dd>
+    <dd>第9行</dd>
+    <dd>第10行</dd>
+</dl>
+<p style="padding-top:1000px;height:50px;"></p>
+
+<div id="gotop"><a href="#"></a></div>
+</body>
+</html>
+

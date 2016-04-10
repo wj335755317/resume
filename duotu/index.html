@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{margin:0;padding:0;list-style: none;}
+.f_box{width:980px;height:210px;position:relative;margin:0 auto;}
+.f_left{background:url(images/d_left.gif) no-repeat;position:absolute;height:22px;width:20px;top:76px;left:0;cursor:pointer;}
+.f_right{background:url(images/d_right.gif) no-repeat;position:absolute;height:22px;top:76px;width:20px;right:0;cursor:pointer;}
+.mf_list{height:210px;width:945px;margin:0 auto;position:relative;overflow:hidden;}
+.my_list{position:absolute;height:210px;}
+.my_list li{float:left;width:139px;padding:18px 25px 0px;}
+.my_list li img{height:139px;width:139px;}
+.my_list li p{line-height:20px;height:40px;text-align:center;padding:5px 8px;overflow:hidden;}
+.my_list li p a{color:#4A4A4A;text-decoration:none;}
+.main_g{height:102px;padding-top:10px;padding-bottom:21px;}
+.mg_list{height:66px;width:972px;padding:4px;background:#f2f2f2;overflow:hidden;line-height:0;font-size:0;}
+</style>
+<script src="../js/jquery.js"></script>
+<script>
+$(function(){
+	var page=1,
+	i=5,
+	$parent=$("div.f_box"),
+	right=$parent.find("div.f_right"),
+	left=$parent.find("div.f_left"),
+	$v_show=$parent.find("ul.my_list"),
+	$v_content=$parent.find("div.mf_list"),
+	v_width=$v_content.width(),
+	len=$v_show.find("li").length,
+	page_count=Math.ceil(len / i);
+	right.click(function(){
+		if(!$v_show.is(":animated")){
+			if(page==page_count){
+				$v_show.animate({left:'0px'},"normal");
+				page = 1;
+			}else{
+				$v_show.animate({left:'-='+v_width},"normal");
+				page++;
+			}
+		}
+	});
+	left.click(function(){
+		if(!$v_show.is(":animated")){
+			if(page==1){
+				$v_show.animate({left:'-='+v_width*(page_count-1) },"slow");
+				page=page_count;
+			}else{
+				$v_show.animate({left:'+='+v_width },"slow");
+				page--;
+			}
+		}
+	});
+	//自动播放
+	$parent.hover(function() {
+		clearInterval(picTimer);
+	},function() {
+		picTimer = setInterval(function() {
+			Scroll();
+		},6000); //此6000代表自动播放的间隔，单位：毫秒
+	}).trigger("mouseleave");
+	function Scroll(){
+		if(!$v_show.is(":animated")){
+			if(page==page_count){
+				$v_show.animate({left:'0px'},"normal");
+				page = 1;
+			}else{
+				$v_show.animate({left:'-='+v_width},"normal");
+				page++;
+			}
+		}
+	}
+});
+</script>
+</head>
+
+<body>
+<div class="f_box">
+    <div class="f_left"></div>
+    <div class="f_right"></div>
+    <div class="mf_list">
+        <ul class="my_list">
+            <li>
+                <a href="#"><img src="images/gn2.jpg" /></a>
+                <p><a href="#" class="a_dir">BELLA PARMA 肉酱意粉酱&nbsp;瓶装 350g...</a></p>
+            </li>
+            <li>
+                <a href="#"><img src="images/gn1.jpg" /></a>
+                <p><a href="#" class="a_dir">LA TORRRNTE 番茄酱 （原味）690g</a></p>
+            </li>
+            <li>
+                <a href="#"><img src="images/gn3.jpg" /></a>
+                <p><a href="#" class="a_dir">品客薯片 酸乳酪洋葱味 110g/罐</a></p>
+            </li>
+            <li>
+                <a href="#"><img src="images/gn4.jpg" /></a>
+                <p><a href="#" class="a_dir">雀巢谷物早餐 迷你装 4*27g/盒</a></p>
+            </li>
+            <li>
+                <a href="#"><img src="images/gn5.jpg" /></a>
+                <p><a href="#" class="a_dir">雀巢谷物早餐 迷你装 4*27g/盒</a></p>
+            </li>
+            <li>
+                <a href="#"><img src="images/gn2.jpg" /></a>
+                <p><a href="#" class="a_dir">BELLA PARMA 肉酱意粉酱&nbsp;瓶装 350g...</a></p>
+            </li>
+            <li>
+                <a href="#"><img src="images/gn1.jpg" /></a>
+                <p><a href="#" class="a_dir">LA TORRRNTE 番茄酱 （原味）690g</a></p>
+            </li>
+            <li>
+                <a href="#"><img src="images/gn3.jpg" /></a>
+                <p><a href="#" class="a_dir">品客薯片 酸乳酪洋葱味 110g/罐</a></p>
+            </li>
+            <li>
+                <a href="#"><img src="images/gn4.jpg" /></a>
+                <p><a href="#" class="a_dir">雀巢谷物早餐 迷你装 4*27g/盒</a></p>
+            </li>
+            <li>
+                <a href="#"><img src="images/gn5.jpg" /></a>
+                <p><a href="#" class="a_dir">雀巢谷物早餐 迷你装 4*27g/盒</a></p>
+            </li>
+        </ul>
+</div>
+</div>
+</body>
+</html>

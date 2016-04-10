@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="../js/jquery.js"></script>
+</head>
+<body>
+  <div class="colockbox1">剩余<span class="day">0</span>天<span class="hour">0</span>小时<span class="minute">0</span>分<span class="second">0</span>秒</div>
+  <div class="colockbox2">剩余<span class="day">0</span>天<span class="hour">0</span>小时<span class="minute">0</span>分<span class="second">0</span>秒</div>
+  <div class="colockbox3">剩余<span class="day">0</span>天<span class="hour">0</span>小时<span class="minute">0</span>分<span class="second">0</span>秒</div>
+<script type="text/javascript">
+(function($) {
+    $.fn.dajishi = function(options) { //倒计时插件
+        var _this = this,
+            defaults = {
+                day_save_elemt: '.day',//存放天数
+                hour_save_elem:'.hour',//存放小时
+                minute_save_elem:'.minute',//存放分钟
+                second_save_elem:'.second',//存放秒钟
+                settime : new Date() //设置时间
+            },
+            ops = $.extend(defaults, options),
+            end_time = new Date(ops.settime).getTime(),//月份是实际月份-1
+        sys_second = (end_time-new Date().getTime())/1000, //获取总的秒数
+        day_elem = $(_this).find(ops.day_save_elemt), //存放天数
+        hour_elem = $(_this).find(ops.hour_save_elem),//存放小时
+        minute_elem = $(_this).find(ops.minute_save_elem),//存放分钟
+        second_elem = $(_this).find(ops.second_save_elem),//存放秒钟
+        timer = setInterval(function(){
+        if (sys_second > 1) {
+          sys_second -= 1;
+          var day = Math.floor((sys_second / 3600) / 24),
+             hour = Math.floor((sys_second / 3600) % 24),
+           minute = Math.floor((sys_second / 60) % 60),
+           second = Math.floor(sys_second % 60);
+          day_elem && $(day_elem).text(day);//计算天
+          hour_elem && $(hour_elem).text(hour<10?"0"+hour:hour);//计算小时
+          minute_elem && $(minute_elem).text(minute<10?"0"+minute:minute);//计算分钟
+          second_elem && $(second_elem).text(second<10?"0"+second:second);//计算秒钟
+        } else { 
+          clearInterval(timer);
+          $(_this).html('<strong style="color:red;">活动已结束<strong>');
+        }
+      }, 1000);
+    return this;
+    };
+})(jQuery);
+$(function(){
+  $('.colockbox1').dajishi({settime:"2016/12/31 00:00:00"});
+  $('.colockbox2').dajishi({settime:"2016/4/21 00:00:00"});
+  $('.colockbox3').dajishi({settime:"2016/4/5 00:00:00"});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>个人简历</title>
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <script src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+  <script type="text/javascript" src="js/ddfullscreenslider.js"></script>
+
+</head>
+<body >
+  <section id="dowebok" class="dd_fullscreenslider">
+  <div class="slidewrapper">
+    <article class="slide">
+      <div class="about">
+        <div class="photo">
+        </div>
+
+        <div class="person_info">
+          <h2>文璟 <br/>
+          <small>web前端工程师</small></h2>
+          <p>籍贯：湖北省天门市</p>
+          <p>出生日期：1993年4月25日</p>
+          <p>婚否：未婚</p>
+          <p>电话：13809286530</p>    
+          <p>地址：杭州市西湖区西溪花园白荻苑6幢</p>
+        </div>
+
+      </div>
+    </article>
+
+    <article class="slide">
+      <div class="skill">
+        <div class="skill_text">
+        <h2>不忘初心，从Web前端开始<br/>
+        <small>精通布局，熟悉特效</small></h2>
+        </div>
+        <div class="skill_form">
+          <ul>
+            <li id="list1">
+              <h4>HTML & CSS</h4>
+                
+              <div class="list1_detail">
+                <ul>
+                  <li>熟练HTML/XHTML、CSS，熟悉页面布局：</li>
+                  <li>能够独立完成对设计页面进行网页代码输出；</li>
+                  <li>能适当运用CSS3使页面在现代浏览器上效果更佳；</li>
+                  <li>能使用合适的结构编写兼容主流浏览器的页面布局；</li>
+                  <li>能熟练使用Chrome开发者工具、FireBug、Fiddler等工具辅助开发。</li>
+                </ul>
+              </div>
+            </li>
+            
+            <li id="list2">
+              <h4>Javascript</h4>
+              <div class="list2_detail">
+                <ul>
+                  <li>对JavaScript基础知识的掌握，包括基本语法以及DOM操作；</li>
+                  
+                </ul>
+              </div>
+            </li>
+            <li id="list3">
+              <h4>jQuery.js</h4>
+              <div class="list3_detail">
+                <ul>
+                  <li>可以通过使用 jQuery 应用 JavaScript 效果；</li>
+                  <li>可以熟练执行类似隐藏、移动以及操作其内容等任务；</li>
+                  <li>可以使用相应的jQuery 对象和函数来实现网页的动态效果。</li>
+                </ul>
+              </div>
+            </li>
+            
+            <li id="list4">
+              <h4>PhotoShop</h4>
+              <div class="list4_detail">
+                <ul>
+                  <li>能进行简单的图片处理和平面设计；</li>
+                  <li>能独立制作GIF动画；</li>
+                  <li>能根据图片特征存成最优的格式。</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="slide">
+      <div class="demo">
+        <div class="demo_title">
+          <h2>练习案例</h2>
+        </div>
+        <div class="demo_detail"> 
+          <ul>
+            <li><a style="color: white;background-color: #B71515;" href="jiahai/index.html" target="_blank">佳海国际</a></li>
+            <li><a href="banner/index.html" target="_blank">幻灯片</a></li>
+            <li><a href="duotu/index.html" target="_blank">多图滚动</a></li>
+            <li><a href="gehang/index.html" target="_blank">返回顶部、隔行变色</a></li>
+            <li><a href="tab/index.html" target="_blank">TAB切换</a></li>
+            <li><a href="quanxuan/index.html" target="_blank">全选插件</a></li>
+            <li><a href="guanggao/index.html" target="_blank">对联广告</a></li>
+            <li><a href="tankuang/index.html" target="_blank">弹窗</a></li>
+            <li><a href="daojishi/index.html" target="_blank">倒计时</a></li>
+            <li><a href="daohangtiao/index.html" target="_blank">导航条</a></li>
+          </ul>
+        </div>
+      </div>
+  
+    </article>
+
+    <article class="slide" >
+      <div class="thank">
+        <div class="thank_text">
+          <h2>致谢</h2>
+          <p>非常感谢您花时间阅读我的简历，期待有机会和您共事!</p>
+          <p><a href="jianli.doc" style="text-decoration:underline;">下载我的简历</a></p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+</body>
+  <script >
+  var fss;
+$(function() {
+  fss = new ddfullscreenslider({
+    sliderid: 'dowebok',
+    onslide: function($slide, index) {
+      if(index==0){
+        $(".about").fadeIn(1500);
+      }else if(index==1){
+        
+        $(".skill_text").fadeIn("slow");
+        $("#list1").animate({width:"90%"},2000);
+        $("#list2").animate({width:"50%"},2000);
+        $("#list3").animate({width:"30%"},2000);
+        $("#list4").animate({width:"25%"},2000);
+        $("#list5").animate({width:"20%"},2000);
+      }else if(index==3){
+        $(".thank").fadeIn(1000);
+      
+      }
+
+    }
+
+  });
+});
+
+  </script>
+</html>

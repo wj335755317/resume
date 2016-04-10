@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{padding: 0;margin: 0;list-style:none;}
+a{
+    text-decoration: none;
+}
+.qh{padding-bottom:20px;width:300px;min-height:205px;height:auto;margin:0 auto;}
+.qh_tit{margin:0 auto;width:300px;height:30px;}
+.qh_tit li{width:100px;float:left;height:30px;}
+.qh_tit li a{width:100px;text-align:center;display:block;line-height:30px;background:#999;}
+.qh_tit li.on a{background:#FFF;color:#333;}
+.qh_list{width:300px;display:inline-block;position:relative;}
+.qh_list dl{width:300px;position:absolute;}
+.qh_list dl dd{width:300px;}
+.qh_list dl dd a{display:block;width:270px;padding:0px 10px 0px 20px;height:35px;line-height:35px;overflow:hidden;background:#000;color:#fff;}
+.qh_list dl dd a:hover{background:#CCC;color:#fff;}
+</style>
+<script src="../js/jquery.js"></script>
+<script>
+$(function(){
+	jQuery.hdm=function(str,fuc){
+		$(str).find("dl").hide();
+		$(str).find("dl:first").show();
+		$(str).find("ul li:first").addClass("on"); 
+		$(str+" ul li").bind(fuc,function(){
+			$(this).addClass("on").siblings("li").removeClass("on"); 
+			var index = $(str).find("li").index(this);
+			$(str).find("dl").eq(index).show().siblings().hide();
+			return false;
+		});
+	}
+	$.hdm("#hua1","mouseenter");
+	$.hdm("#hua2","click");
+});
+
+</script>
+</head>
+<body>
+<div id="hua1" class="qh">
+     <ul class="qh_tit">
+        <li><a title="新闻资讯" href="#">新闻资讯</a></li>
+        <li><a title="市场公告" href="#">市场公告</a></li>
+        <li><a title="新手上路" href="#">新手上路</a></li>
+    </ul>
+   <div class="qh_list">
+        <dl>
+            <dd><a href="#">1.1新闻资讯新闻资讯新闻资讯新闻资讯</a></dd>
+            <dd><a href="#">1.2新闻资讯新闻资讯新闻资讯新闻资讯</a></dd>
+            <dd><a href="#">1.3新闻资讯新闻资讯新闻资讯新闻资讯</a></dd>
+            <dd><a href="#">1.4新闻资讯新闻资讯新闻资讯新闻资讯</a></dd>
+            <dd><a href="#">1.5新闻资讯新闻资讯新闻资讯新闻资讯</a></dd>
+        </dl>
+        <dl>
+            <dd><a href="#">2.1市场公告市场公告市场公告市场公告</a></dd>
+            <dd><a href="#">2.2市场公告市场公告市场公告市场公告</a></dd>
+            <dd><a href="#">2.3市场公告市场公告市场公告市场公告</a></dd>
+            <dd><a href="#">2.4市场公告市场公告市场公告市场公告</a></dd>
+            <dd><a href="#">2.5市场公告市场公告市场公告市场公告</a></dd>
+        </dl>
+        <dl>
+            <dd><a href="#">3.1新手上路新手上路新手上路新手上路</a></dd>
+            <dd><a href="#">3.2新手上路新手上路新手上路新手上路</a></dd>
+            <dd><a href="#">3.3新手上路新手上路新手上路新手上路</a></dd>
+            <dd><a href="#">3.4新手上路新手上路新手上路新手上路</a></dd>
+            <dd><a href="#">3.5新手上路新手上路新手上路新手上路</a></dd>
+        </dl>
+     </div>         
+</div>
+<div id="hua2" class="qh">
+     <ul class="qh_tit">
+        <li><a title="新闻资讯" href="#">新闻资讯</a></li>
+        <li><a title="市场公告" href="#">市场公告</a></li>
+        <li><a title="新手上路" href="#">新手上路</a></li>
+    </ul>
+   <div class="qh_list">
+        <dl>
+            <dd><a href="#">1.1新闻资讯新闻资讯新闻资讯新闻资讯</a></dd>
+            <dd><a href="#">1.2新闻资讯新闻资讯新闻资讯新闻资讯</a></dd>
+            <dd><a href="#">1.3新闻资讯新闻资讯新闻资讯新闻资讯</a></dd>
+            <dd><a href="#">1.4新闻资讯新闻资讯新闻资讯新闻资讯</a></dd>
+            <dd><a href="#">1.5新闻资讯新闻资讯新闻资讯新闻资讯</a></dd>
+        </dl>
+        <dl>
+            <dd><a href="#">2.1市场公告市场公告市场公告市场公告</a></dd>
+            <dd><a href="#">2.2市场公告市场公告市场公告市场公告</a></dd>
+            <dd><a href="#">2.3市场公告市场公告市场公告市场公告</a></dd>
+            <dd><a href="#">2.4市场公告市场公告市场公告市场公告</a></dd>
+            <dd><a href="#">2.5市场公告市场公告市场公告市场公告</a></dd>
+        </dl>
+        <dl>
+            <dd><a href="#">3.1新手上路新手上路新手上路新手上路</a></dd>
+            <dd><a href="#">3.2新手上路新手上路新手上路新手上路</a></dd>
+            <dd><a href="#">3.3新手上路新手上路新手上路新手上路</a></dd>
+            <dd><a href="#">3.4新手上路新手上路新手上路新手上路</a></dd>
+            <dd><a href="#">3.5新手上路新手上路新手上路新手上路</a></dd>
+        </dl>
+     </div>         
+</div>
+
+
+
+</body>
+</html>
